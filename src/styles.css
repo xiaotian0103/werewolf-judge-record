@@ -1,0 +1,40 @@
+:root{
+  --bg:#0f1720;
+  --panel:#111827;
+  --text:#e6eef8;
+  --muted:#9aa6b2;
+  --accent:#6ee7b7;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue'; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+.app{max-width:1100px; margin:20px auto; padding:16px}
+header{display:flex; align-items:center; justify-content:space-between}
+h1{margin:0; font-size:1.4rem}
+.meta{color:var(--muted)}
+main{display:flex; gap:16px; margin-top:12px}
+.left{flex:1}
+.right{width:420px}
+.panel{background:rgba(255,255,255,0.03); padding:12px; border-radius:8px; margin-bottom:12px}
+.input-row{display:flex; gap:8px}
+.input-row input{flex:1; padding:8px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text)}
+button{background:transparent; border:1px solid rgba(255,255,255,0.08); padding:6px 10px; border-radius:6px; color:var(--text); cursor:pointer}
+button.small{padding:4px 6px; font-size:0.85rem}
+.player-list{list-style:none; padding:0; margin:8px 0}
+.player-list li{display:flex; gap:8px; align-items:center; padding:6px 0}
+.player-list input{background:transparent; border:1px dashed rgba(255,255,255,0.04); padding:6px; border-radius:6px; color:var(--text)}
+.alive{margin-left:auto; padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.03)}
+.alive.dead{opacity:0.5; text-decoration:line-through}
+.assign-list{list-style:none; padding:0; margin:8px 0}
+.assign-list li{display:flex; gap:8px; align-items:center; padding:6px 0}
+.seat{width:28px; display:inline-block; text-align:center; color:var(--muted)}
+.note{color:var(--muted); font-size:0.9rem}
+.timer-display{font-size:2rem; text-align:center; margin:8px 0}
+.logs{max-height:320px; overflow:auto; padding-left:18px}
+.log-time{font-size:0.8rem; color:var(--muted)}
+.log-text{margin-top:4px}
+.controls{display:flex; gap:8px; margin-bottom:8px}
+footer{margin-top:12px; color:var(--muted); text-align:center}
+@media(max-width:900px){
+  main{flex-direction:column}
+  .right{width:100%}
+}
