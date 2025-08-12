@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>狼人杀法官记录器</title>
+<style>
+    body { font-family: sans-serif; margin: 20px; background: #f4f4f4; }
+    h1 { text-align: center; }
+    .controls { margin: 20px 0; text-align: center; }
+    button { padding: 10px 20px; margin: 5px; font-size: 16px; }
+    .log { background: white; padding: 10px; border-radius: 8px; min-height: 200px; }
+</style>
+</head>
+<body>
+    <h1>狼人杀法官记录器</h1>
+    <div class="controls">
+        <button onclick="startTimer()">开始计时</button>
+        <button onclick="stopTimer()">停止计时</button>
+        <button onclick="addLog()">添加记录</button>
+    </div>
+    <div id="timer" style="text-align:center; font-size: 24px;">00:00</div>
+    <div class="log" id="log"></div>
+
+<script>
+let timerInterval;
+let seconds = 0;
+
+function startTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        seconds++;
+        let m = String(Math.floor(seconds / 60)).padStart(2, '0');
+        let s = String(seconds % 60).padStart(2, '0');
+        document.getElementById("timer").textContent = `${m}:${s}`;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function addLog() {
+    let text = prompt("请输入记录内容：");
+    if (text) {
+        let logBox = document.getElementById("log");
+        let entry = document.createElement("div");
+        entry.textContent = new Date().toLocaleTimeString() + " - " + text;
+        logBox.appendChild(entry);
+    }
+}
+</script>
+</body>
+</html>
